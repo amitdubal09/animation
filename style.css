@@ -1,0 +1,110 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    overflow-x: hidden;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+.navbar {
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav {
+    gap: 30px;
+    position: relative;
+    z-index: 999;
+    display: flex;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.buttons {
+    gap: 30px;
+    display: flex;
+    background-color: transparent;
+}
+
+.buttons a {
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: 1px solid red;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.spidy {
+    display: flex;
+    justify-content: center;
+}
+
+#spidermanimg {
+    top: 0;
+    margin-top: 30px;
+    position: absolute;
+    filter: drop-shadow(20px 20px 20px black);
+    transition: .2s ease;
+}
+
+#spidermanimg:hover {
+    filter: drop-shadow(30px 30px 20px #222121);
+}
+
+.home {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    margin: 240px 40px;
+}
+
+.color {
+    color: red;
+    font-weight: bold;
+}
+
+.text span {
+    font-size: 43px;
+    text-transform: uppercase;
+    font-family: "Tapestry", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.suit {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 80px 80px;
+}
+
+.suitimg {
+    width: 20%;
+}
