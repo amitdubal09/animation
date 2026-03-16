@@ -106,9 +106,48 @@ Overlay.addEventListener("mouseleave", function () {
 
 //Header and Cursor
 var Header = document.querySelector("#header");
-Header.addEventListener("mousemove", function(){
+Header.addEventListener("mousemove", function () {
     Cursor.style.display = "none";
 })
-Header.addEventListener("mouseleave", function(){
+Header.addEventListener("mouseleave", function () {
     Cursor.style.display = "initial";
+})
+
+// left-right animated sidebar
+var Main = document.querySelector("#main")
+var Full = document.querySelector("#full")
+var Icon = document.querySelector("#icon")
+var Cross = document.querySelector("#full i")
+
+var tl = gsap.timeline()
+tl.to(Full, {
+    right: 0,
+    duration: 0.9,
+    opacity: 1
+})
+tl.pause()
+
+Icon.addEventListener("mousemove", function () {
+    Overlay.style.display = "none";
+})
+Icon.addEventListener("click", function () {
+    tl.play();
+    Icon.style.display = "none";
+
+    gsap.to("#full img", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+});
+
+Cross.addEventListener("click", function () {
+    tl.reverse()
+    Icon.style.display = "initial";
+    gsap.from(Icon, {
+        opacity: 0,
+        duration: 2
+    })
 })
