@@ -223,11 +223,28 @@ body {
     transform: translateY(40px);
 }
 
+.sub-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-size: 100px;
+}
 
+.sub-main h1 {
+    overflow: hidden;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sub-main span {
+    display: inline-block;
+}
 
 
 
 
 footer {
     height: 200px;
+    border: 2px solid white;
 }

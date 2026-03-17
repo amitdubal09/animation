@@ -46,6 +46,15 @@ gsap.from(".suitimg", {
     stagger: 0.2
 })
 
+//Header and Cursor
+var Header = document.querySelector("#header");
+Header.addEventListener("mousemove", function () {
+    Cursor.style.display = "none";
+})
+Header.addEventListener("mouseleave", function () {
+    Cursor.style.display = "initial";
+})
+
 //SVG Line animation 
 var InitialPath = `M 10 100 Q 500 100 990 100`;
 var FinalPath = `M 10 100 Q 500 100 990 100`;
@@ -78,8 +87,6 @@ var Cursor = document.querySelector("#cursor");
 var CursorAnime = document.querySelector("#cursor-anime");
 var Overlay = document.querySelector("#overlay");
 
-
-
 window.addEventListener("mousemove", function (dets) {
 
     gsap.to(Cursor, {
@@ -90,6 +97,7 @@ window.addEventListener("mousemove", function (dets) {
     });
 });
 Overlay.addEventListener("mouseenter", function () {
+    Cursor.style.boxShadow = "0 0 0 transparent";
     Cursor.innerHTML = `<a href="https://www.google.com">View More</a>`
     gsap.to(Cursor, {
         scale: 3,
@@ -98,22 +106,15 @@ Overlay.addEventListener("mouseenter", function () {
 });
 Overlay.addEventListener("mouseleave", function () {
     Cursor.innerHTML = ""
+    Cursor.style.boxShadow = "0 0 20px 10px pink";
+    // box-shadow: 0px 0px 20px 10px pink;
     gsap.to(Cursor, {
         scale: 1,
         backgroundColor: "rgb(255, 255, 255)"
     });
 });
 
-//Header and Cursor
-var Header = document.querySelector("#header");
-Header.addEventListener("mousemove", function () {
-    Cursor.style.display = "none";
-})
-Header.addEventListener("mouseleave", function () {
-    Cursor.style.display = "initial";
-})
-
-// left-right animated sidebar
+// right<-left animated sidebar
 var Main = document.querySelector("#main")
 var Full = document.querySelector("#full")
 var Icon = document.querySelector("#icon")
@@ -151,3 +152,28 @@ Cross.addEventListener("click", function () {
         duration: 2
     })
 })
+
+//text animation
+function TextAnimation() {
+    var Text = document.querySelector(".sub-main h1")
+    var Extracttext = Text.textContent.split("");
+    let clutter = "";
+    Extracttext.forEach(function (amit) {
+        clutter += `<span>${amit}</span>`;
+    })
+    Text.innerHTML = clutter;
+    console.log(clutter);
+}
+TextAnimation()
+gsap.from(".sub-main span", {
+    y: 150,
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.3,
+    scrollTrigger: {
+        trigger: ".sub-main",
+        start: "top 30%",
+        end: "top 0%",
+        scrub: true,
+    }
+});
