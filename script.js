@@ -1,3 +1,8 @@
+// Initialize Lenis
+const lenis = new Lenis({
+    autoRaf: true,
+});
+
 // Hero-Nav animation
 gsap.from(".navbar", {
     xPercent: 500,
@@ -171,9 +176,11 @@ gsap.from(".sub-main span", {
     duration: 0.9,
     stagger: 0.3,
     scrollTrigger: {
+        // scrub:true,
         trigger: ".sub-main",
         start: "top 30%",
         end: "top 0%",
-        scrub: true,
+        markers:true
     }
+
 });
